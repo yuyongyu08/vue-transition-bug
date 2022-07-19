@@ -1,12 +1,12 @@
 <template>
   <div class="about">
     <h1>{{ route.name }}</h1>
-    <transition-group tag="ul">
-      <template v-for="item in list" :key="item.id">
+    <ul>
+      <transition v-for="(item, index) in list" mode="out-in" :key="index">
         <li class="role" v-if="item.type === 'role'"  @click="handleClick(item)">{{ item.title }}</li>
         <li class="product" v-else-if="item.type === 'product'" >{{ item.title }}</li>
-      </template>
-    </transition-group>
+      </transition>
+    </ul>
   </div>
 </template>
 <script setup>
@@ -29,8 +29,7 @@ const products = [
   { id: 'p1', type: 'product', title: 'Product1' },
   { id: 'p2', type: 'product', title: 'Product2' },
   { id: 'p3', type: 'product', title: 'Product3' },
-  { id: 'p4', type: 'product', title: 'Product4' },
-  // {id: 'p5', type: 'product', title: 'Product5'},
+  // { id: 'p4', type: 'product', title: 'Product4' },
 ]
 
 let list = ref(roles);

@@ -22,6 +22,11 @@ const router = createRouter({
       name: '<transition-group>',
       component: () => import('../views/Demo1.vue')
     },
+    {
+      path: '/demo2',
+      name: '<transition>',
+      component: () => import('../views/Demo2.vue')
+    },
   ]
 })
 
