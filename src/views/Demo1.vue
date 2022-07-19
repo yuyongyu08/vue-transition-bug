@@ -4,9 +4,7 @@
     <transition-group tag="ul">
       <template v-for="item in list">
         <li :key="item.id" v-if="item.type === 'role'" class="role"
-          @click="handleClick(item)">{{
-              item.title
-          }}</li>
+          @click="handleClick(item)">{{ item.title }}</li>
         <li :key="item.id" v-if="item.type === 'product'" class="product">{{
             item.title
         }}</li>
@@ -42,12 +40,12 @@ let list = ref(roles);
 
 function handleClick(item) {
   if (item.type === 'role') {
-    if (roleSlected.value) {
-      roleSlected.value = false;
-      list.value = products;
+    if (!roleSlected.value) {
+      roleSlected.value = true;
+      list.value = [...products];
       list.value.unshift(item);
     } else {
-      roleSlected.value = true;
+      roleSlected.value = false;
       list.value = roles;
     }
   }
@@ -55,6 +53,14 @@ function handleClick(item) {
 
 </script>
 <style lang="scss">
+ul {
+  height: 280px;
+  border: 1px solid #000;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+}
+
 .role,
 .product {
   line-height: 40px;
