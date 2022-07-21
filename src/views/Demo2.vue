@@ -2,7 +2,7 @@
   <div class="about">
     <h1>{{ route.name }}</h1>
     <ul>
-      <transition v-for="(item, i) in list" mode="out-in" :key="i" appear>
+      <transition v-for="(item, i) in list" mode="out-in" :key="item.id" appear>
         <li class="role" v-if="item.type === 'role'"  @click="handleClick(item)">{{ item.title }}</li>
         <li class="product" v-else-if="item.type === 'product'" >{{ item.title }}</li>
       </transition>
@@ -29,7 +29,7 @@ const products = [
   { id: 'p1', type: 'product', title: 'Product1' },
   { id: 'p2', type: 'product', title: 'Product2' },
   { id: 'p3', type: 'product', title: 'Product3' },
-  // { id: 'p4', type: 'product', title: 'Product4' },
+  { id: 'p4', type: 'product', title: 'Product4' },
 ]
 
 let list = ref(roles);
