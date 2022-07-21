@@ -56,6 +56,7 @@ ul {
   margin: 0;
   padding: 10px;
   list-style: none;
+  display: flex;
 }
 
 .role,
@@ -64,6 +65,8 @@ ul {
   margin-top: 10px;
   color: white;
   text-align: center;
+  margin-right: 10px;
+  width: 150px;
 }
 
 .role {
@@ -82,11 +85,11 @@ ul {
 
 .v-enter-from {
   opacity: 0;
-  transform: translateY(-30px);
+  transform: translateX(-30px);
 }
 
 .v-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(30px);
 }
 </style>
