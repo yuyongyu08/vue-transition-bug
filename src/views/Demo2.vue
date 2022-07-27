@@ -2,7 +2,7 @@
   <div class="about">
     <h1>{{ route.name }}</h1>
     <ul>
-      <transition v-for="(item, i) in list" mode="out-in" :key="item.id" appear>
+      <transition v-for="(item, i) in list" mode="out-in" :key="index">
         <li class="role" v-if="item.type === 'role'"  @click="handleClick(item)">{{ item.title }}</li>
         <li class="product" v-else-if="item.type === 'product'" >{{ item.title }}</li>
       </transition>
@@ -29,7 +29,7 @@ const products = [
   { id: 'p1', type: 'product', title: 'Product1' },
   { id: 'p2', type: 'product', title: 'Product2' },
   { id: 'p3', type: 'product', title: 'Product3' },
-  { id: 'p4', type: 'product', title: 'Product4' },
+  // { id: 'p4', type: 'product', title: 'Product4' },
 ]
 
 let list = ref(roles);
@@ -49,46 +49,5 @@ function handleClick(item) {
 
 </script>
 <style lang="scss">
-ul {
-  height: 280px;
-  border: 1px solid #000;
-  margin: 0;
-  padding: 10px;
-  list-style: none;
-  display: flex;
-}
-
-.role,
-.product {
-  line-height: 40px;
-  margin-top: 10px;
-  color: white;
-  text-align: center;
-  margin-right: 10px;
-  width: 150px;
-}
-
-.role {
-  background-color: red;
-  cursor: pointer;
-}
-
-.product {
-  background-color: green;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 2s linear;
-}
-
-.v-enter-from {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
+@import '../assets/component.scss'
 </style>
