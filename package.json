@@ -1,10 +1,14 @@
 {
   "name": "vue-project",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 4173"
+    "preview": "vite preview --port 4173",
+    "preinstall": "only-allow yarn"
   },
   "dependencies": {
     "vue": "^3.2.37",
@@ -12,6 +16,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.1",
+    "only-allow": "^1.1.1",
     "sass": "^1.53.0",
     "vite": "^3.0.1"
   }
