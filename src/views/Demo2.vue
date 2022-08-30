@@ -3,8 +3,11 @@
     <h1>{{ route.name }}</h1>
     <ul>
       <transition v-for="(item, i) in list" mode="out-in" :key="index">
-        <li class="role" v-if="item.type === 'role'"  @click="handleClick(item)">{{ item.title }}</li>
-        <li class="product" v-else-if="item.type === 'product'" >{{ item.title }}</li>
+        <li class="role" v-if="item.type === 'role'" @click="handleClick(item)">
+          {{ item.title }}</li>
+        <li class="product" v-else-if="item.type === 'product'">
+          {{ item.title }} for {{ list[0].title }}
+        </li>
       </transition>
     </ul>
   </div>
@@ -35,15 +38,13 @@ const products = [
 let list = ref(roles);
 
 function handleClick(item) {
-  if (item.type === 'role') {
-    if (!roleSlected.value) {
-      roleSlected.value = true;
-      list.value = [...products];
-      list.value.unshift(item);
-    } else {
-      roleSlected.value = false;
-      list.value = roles;
-    }
+  if (!roleSlected.value) {
+    roleSlected.value = true;
+    list.value = [...products];
+    list.value.unshift(item);
+  } else {
+    roleSlected.value = false;
+    list.value = roles;
   }
 }
 

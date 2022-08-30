@@ -1,4 +1,9 @@
+h1 {
+  text-align: center;
+}
+
 ul {
+  width: 830px;
   height: 280px;
   border: 1px solid #000;
   margin: 0;
@@ -34,15 +39,17 @@ ul {
 
 .v-enter-active,
 .v-leave-active {
-  transition: opacity 2s linear;
+  transition: all 2s linear;
 }
+
+$offset: 30px;
 
 .v-enter-from {
   opacity: 0;
-  // transform: translateX(-30px);
+  transform: translateX(-$offset);
 }
 
 .v-leave-to {
   opacity: 0;
-  // transform: translateX(30px);
+  transform: translateX($offset);
 }

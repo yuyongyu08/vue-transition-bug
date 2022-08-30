@@ -1,10 +1,13 @@
 <template>
-  <div class="about">
+  <div class="demo">
     <h1>{{ route.name }}</h1>
     <transition-group tag="ul">
       <template v-for="item in list" :key="item.id">
-        <li class="role" v-if="item.type === 'role'" @click="handleClick(item)">{{ item.title }}</li>
-        <li class="product" v-else-if="item.type === 'product'">{{ item.title }}</li>
+        <li class="role" v-if="item.type === 'role'" @click="handleClick(item)">
+          {{ item.title }}</li>
+        <li class="product" v-else-if="item.type === 'product'">
+          {{ item.title }} for {{ list[0].title }}
+        </li>
       </template>
     </transition-group>
   </div>
